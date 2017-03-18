@@ -8,3 +8,4 @@ deploy:
   app: murmuring-headland-50346
   on:
     repo: MeyerEsther/projet
+  run: "rake db:migrate"
