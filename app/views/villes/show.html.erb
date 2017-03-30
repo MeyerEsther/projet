@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nom:</strong>
+  <strong>Name:</strong>
   <%= @ville.nom %>
 </p>
 
@@ -16,13 +16,13 @@
 </p>
 
 <p>
-  <strong>Today meteo: weather report:</strong>
+  <strong>Weather :</strong>
   <%= @weatherSummary %>
 </p>
 
 <p>
-  <strong>Today meteo: temperature :</strong>
-  <%= @weatherTemperature%>
+  <strong>Temperature :</strong>
+  <%= '%.1f' % @weatherTemperature%> &deg;C
 </p>
 
 <%= link_to 'Edit', edit_ville_path(@ville) %> |
