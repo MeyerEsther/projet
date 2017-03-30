@@ -15,5 +15,15 @@
   <%= @ville.longitude %>
 </p>
 
+<p>
+  <strong>Today meteo: weather report:</strong>
+  <%= @weatherSummary %>
+</p>
+
+<p>
+  <strong>Today meteo: temperature :</strong>
+  <%= @weatherTemperature%>
+</p>
+
 <%= link_to 'Edit', edit_ville_path(@ville) %> |
 <%= link_to 'Back', villes_path %>
