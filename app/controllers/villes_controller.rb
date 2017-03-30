@@ -17,9 +17,10 @@ class VillesController < ApplicationController
     if forecast
       todayForecast = forecast.currently
       if todayForecast
-        @weatherSummary = todayForecast.summary
-        weatherCheck = true
-      end
+        if todayForecast.summary
+          @weatherSummary = todayForecast.summary
+          weatherCheck = true
+        end
       if todayForecast.temperature
           @weatherTemperature = toCelsus(todayForecast.temperature)
           temperatureCheck = true
@@ -29,9 +30,9 @@ class VillesController < ApplicationController
   if !weatherCheck
       @weatherSummary = "Unavailable"
     end
-    if !temperatureCheck
+  if !temperatureCheck
       @weatherTemperature = "Unavailable"
-   end
+    end
   end
 
 # Convertion Fahrenheit en Celsus
