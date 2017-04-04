@@ -18,13 +18,12 @@
 <p>
   <strong>Weather :</strong>
     <% if @weatherSummary %>
-      <%= @weatherSummary %>
+      <i class="wi wi-forecast-io-<%= @weatherSummary %>"></i>
     <% else %>
       Unavailable
     <% end %>
 </p>
 
-<i class="wi wi-day-sunny"></i>
 
 <p>
   <strong>Temperature :</strong>

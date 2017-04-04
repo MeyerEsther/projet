@@ -17,8 +17,8 @@ class VillesController < ApplicationController
     if forecast
       todayForecast = forecast.currently
       if todayForecast
-        if todayForecast.summary
-          @weatherSummary = todayForecast.summary
+        if todayForecast.icon
+          @weatherSummary = todayForecast.icon
           weatherCheck = true
         end
       if todayForecast.temperature
