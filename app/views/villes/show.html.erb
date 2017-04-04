@@ -17,12 +17,20 @@
 
 <p>
   <strong>Weather :</strong>
-  <%= @weatherSummary %>
+    <% if @weatherSummary %>
+      <%= @weatherSummary %>
+    <% else %>
+      Unavailable
+    <% end %>
 </p>
 
 <p>
   <strong>Temperature :</strong>
-  <%= '%.1f' % @weatherTemperature%> &deg;C
+  <% if @weatherTemperature %>
+    <%= '%.2f' % @weatherTemperature %> &deg;C
+  <% else %>
+  Unavailable
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_ville_path(@ville) %> |

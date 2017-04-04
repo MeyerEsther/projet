@@ -28,10 +28,10 @@ class VillesController < ApplicationController
       end
     end
   if !weatherCheck
-      @weatherSummary = "Unavailable"
+      @weatherSummary =nil
     end
   if !temperatureCheck
-      @weatherTemperature = "Unavailable"
+      @weatherTemperature = nil
     end
   end
 
