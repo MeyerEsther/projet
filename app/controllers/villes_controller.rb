@@ -33,6 +33,9 @@ class VillesController < ApplicationController
   if !temperatureCheck
       @weatherTemperature = nil
     end
+    
+    @temperatureColor = colorTemperature(@weatherTemperature)
+    
   end
 
 # Convertion Fahrenheit en Celsus
@@ -107,3 +110,19 @@ class VillesController < ApplicationController
       params.require(:ville).permit(:nom, :latitude, :longitude)
     end
 end
+
+# Color for display temperature
+  def colorTemperature(celsusTemperature)
+    if celsusTemperature.nil?
+      return ""
+    elsif celsusTemperature < 0
+      return "text-info"
+    elsif celsusTemperature < 15
+      return "text-primary"
+    elsif celsusTemperature < 30
+      return "text-warning"
+    else
+      return "text-danger"
+    end
+  end
+  

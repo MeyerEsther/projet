@@ -28,7 +28,9 @@
 <p>
   <strong>Temperature :</strong>
   <% if @weatherTemperature %>
-    <%= '%.2f' % @weatherTemperature %> &deg;C
+    <span class="<%= @temperatureColor %>">
+      <%= '%.2f' % @weatherTemperature %> &deg;C
+    </span>
   <% else %>
   Unavailable
   <% end %>
