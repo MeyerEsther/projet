@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= requite datatable
 //= require turbolinks
 //= require_tree
 //= require tether.min 
