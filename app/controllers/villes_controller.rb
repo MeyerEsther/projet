@@ -10,25 +10,30 @@ class VillesController < ApplicationController
   # GET /villes/1
   # GET /villes/1.json
   def show
-    forecast = ForecastIO.forecast(@ville.latitude, @ville.longitude)
+    forecast = ForecastIO.forecast(@ville.latitude, @ville.longitude, params: { units: 'si' })
     weatherCheck = false
     temperatureCheck = false
     
     if forecast
       todayForecast = forecast.currently
       if todayForecast
-        if todayForecast.icon
-          @weatherSummary = todayForecast.icon
+        if todayForecast.summary
+          @weatherSummary = todayForecast.summary
           weatherCheck = true
         end
+        if todayForecast.icon
+          @weatherIconName = todayForecast.icon
+           weatherFetched = true
+         end
       if todayForecast.temperature
-          @weatherTemperature = toCelsus(todayForecast.temperature)
+          @weatherTemperature = todayForecast.temperature
           temperatureCheck = true
         end
       end
     end
   if !weatherCheck
       @weatherSummary =nil
+      @weatherIconName = nil
     end
   if !temperatureCheck
       @weatherTemperature = nil
@@ -38,14 +43,6 @@ class VillesController < ApplicationController
     
   end
 
-# Convertion Fahrenheit en Celsus
-   def toCelsus(fahrenheitTemperature)
-      if fahrenheitTemperature
-        return (fahrenheitTemperature - 32.0) * 5.0 / 9.0
-      else
-        return nil
-      end
-    end
 
 
 

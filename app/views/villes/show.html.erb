@@ -2,6 +2,9 @@
 
 <h1>
   <%= @ville.nom %>
+  <% if @weatherIconName %>
+   <i class="wi wi-forecast-io-<%= @weatherIconName %>"></i>
+  <% end %>
 </h1>
   
 
@@ -18,7 +21,7 @@
 <p>
   <strong>Weather :</strong>
     <% if @weatherSummary %>
-      <i class="wi wi-forecast-io-<%= @weatherSummary %>"></i>
+      <%= @weatherSummary %>
     <% else %>
       Unavailable
     <% end %>
