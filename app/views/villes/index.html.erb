@@ -31,6 +31,9 @@
 <%= link_to 'New Ville', new_ville_path %>
 <script>
   $(document).ready(function(){
-    $('#table').DataTable();
+      var dataTable = $('#table').DataTable();
+  document.addEventListener("turbolinks:before-cache", function() {
+    dataTable.destroy();
+  });
 }); 
 </script>
