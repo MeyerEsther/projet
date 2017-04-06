@@ -243,7 +243,7 @@ table.dataTable td {
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
   cursor: default;
-  color: #666 !important;
+  color: #C0BABA !important;
   border: 1px solid transparent;
   background: transparent;
   box-shadow: none;
@@ -296,7 +296,7 @@ table.dataTable td {
   font-size: 1.2em;
 }
 .dataTables_length {
-  color: #333;
+  color: #C0BABA;
 }
 .dataTables_wrapper .dataTables_scroll {
   clear: both;
