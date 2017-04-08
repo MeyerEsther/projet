@@ -9,8 +9,11 @@ class VillesController < ApplicationController
 
   # GET /villes/1
   # GET /villes/1.json
+
+
+
   def show
-    forecast = ForecastIO.forecast(@ville.latitude, @ville.longitude, params: { units: 'si' })
+    forecast = @ville.meteo
     weatherCheck = false
     temperatureCheck = false
     
@@ -40,11 +43,8 @@ class VillesController < ApplicationController
     end
     
     @temperatureColor = colorTemperature(@weatherTemperature)
-    
+          
   end
-
-
-
 
 
   # GET /villes/new
@@ -108,18 +108,3 @@ class VillesController < ApplicationController
     end
 end
 
-# Color for display temperature
-  def colorTemperature(celsusTemperature)
-    if celsusTemperature.nil?
-      return ""
-    elsif celsusTemperature < 0
-      return "text-info"
-    elsif celsusTemperature < 15
-      return "text-primary"
-    elsif celsusTemperature < 30
-      return "text-warning"
-    else
-      return "text-danger"
-    end
-  end
-  
