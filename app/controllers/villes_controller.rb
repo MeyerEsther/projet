@@ -13,40 +13,29 @@ class VillesController < ApplicationController
 
 
   def show
-    forecast = @ville.meteo
-    weatherCheck = false
-    temperatureCheck = false
-    
-    if forecast
-      todayForecast = forecast.currently
-      if todayForecast
-        if todayForecast.summary
-          @weatherSummary = todayForecast.summary
-          weatherCheck = true
-        end
-        if todayForecast.icon
-          @weatherIconName = todayForecast.icon
-           weatherFetched = true
-         end
-      if todayForecast.temperature
-          @weatherTemperature = todayForecast.temperature
-          temperatureCheck = true
-        end
-      end
-    end
-  if !weatherCheck
-      @weatherSummary =nil
-      @weatherIconName = nil
-    end
-  if !temperatureCheck
-      @weatherTemperature = nil
-    end
-    
+
+    res=@ville.Weather()
+    @weatherSummary = res['weatherSummary']
+    @weatherTemperature = res['weatherTemperature']
+    @weatherIconName = res['weatherIconName']
     @temperatureColor = colorTemperature(@weatherTemperature)
-          
   end
 
 
+   # Color for display temperature
+  def colorTemperature(celsusTemperature)
+    if celsusTemperature.nil?
+      return ""
+    elsif celsusTemperature < 0
+      return "text-info"
+    elsif celsusTemperature < 15
+      return "text-primary"
+    elsif celsusTemperature < 30
+      return "text-warning"
+    else
+      return "text-danger"
+    end
+  end
   # GET /villes/new
   def new
     @ville = Ville.new
