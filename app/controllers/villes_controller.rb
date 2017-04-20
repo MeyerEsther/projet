@@ -36,6 +36,8 @@ class VillesController < ApplicationController
       return "text-danger"
     end
   end
+  
+  
   # GET /villes/new
   def new
     @ville = Ville.new
